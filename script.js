@@ -67,12 +67,13 @@ function search() {
     const cityInput = document.querySelector('#city').value;
 
     const filteredData = csvData.filter(row => {
-        const ageMatch = ageInput ? row['年齢'] === ageInput : true;
-        const cityMatch = cityInput ? row[cityInput] : true;
-        return ageMatch && cityMatch;
+        return row['年齢'] === ageInput;
     });
 
-    generateTable(filteredData);
+    const result = filteredData.length > 0 ? filteredData[0][cityInput] : '該当なし';
+
+    document.querySelector('#search-conditions').textContent = `条件: 年齢 ${ageInput}, 都道府県 ${cityInput}`;
+    document.querySelector('#search-output').textContent = `検索結果: ${result}`;
 }
 
 // ページ読み込み時にCSVファイルを読み込む
