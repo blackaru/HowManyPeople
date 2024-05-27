@@ -2,7 +2,7 @@
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
-    <title>CSV to HTML</title>
+    <title>CSV to HTML Search</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -11,6 +11,7 @@
         .result-table {
             width: 100%;
             border-collapse: collapse;
+            margin-top: 20px;
         }
         .result-table th, .result-table td {
             border: 1px solid #ddd;
@@ -19,11 +20,32 @@
         .result-table th {
             background-color: #f2f2f2;
         }
+        .search-form {
+            margin-bottom: 20px;
+        }
+        .search-form label {
+            margin-right: 10px;
+        }
+        .search-form input {
+            margin-right: 10px;
+        }
     </style>
 </head>
 <body>
 
-<h1>CSV to HTML</h1>
+<h1>CSV to HTML Search</h1>
+
+<div class="search-form">
+    <label for="age">年齢:</label>
+    <input type="number" id="age" name="age" min="0">
+    <label for="city">都道府県:</label>
+    <select id="city" name="city">
+        <option value="東京">東京</option>
+        <option value="大阪">大阪</option>
+        <option value="名古屋">名古屋</option>
+    </select>
+    <button type="button" onclick="search()">検索</button>
+</div>
 
 <table class="result-table" id="csv-table">
     <thead>
